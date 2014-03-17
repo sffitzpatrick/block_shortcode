@@ -55,11 +55,16 @@ function block_shortcode_filter_block_shortcode_tips($filter, $format, $long) {
  
  
 function block_shortcode_form_block_admin_configure_alter(&$form, &$form_state, $form_id) {
-
+dpm($form);
   $module = $form['module']['#value'];
   $delta = $form['delta']['#value'];
-  $form['block_shortcode_example'] = array(
-    '#markup' => '<strong>Shortcode:</strong> [block module:'.$module.' delta:'.$delta.']',
+  $form['settings']['block_shortcode_example'] = array(
+    '#type' => 'textfield',
+    '#title' => 'Shortcode:',
+    '#default_value' => '[block module:'.$module.' delta:'.$delta.']',
+    '#description' => 'Copy the text above and paste anywhere that allows the Block Shortcode filter',
+    '#attributes' => array('readonly' => 'readonly'),
+    
   );
 
 }
