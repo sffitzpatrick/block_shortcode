@@ -10,58 +10,57 @@
 function block_shortcode_filter_info() {
  
   $filters['block_shortcode'] = array(
-    'title' => t('Block Shortcodes'), // (required) An administrative summary of what the filter does.
-    'description' => t('Sets up a custom filter that enables Block Shortcodes.'), // Additional administrative information about the filter's behavior, if needed for clarification.
-    'prepare callback' => 'block_shortcode_filter_node_embed_prepare', // The name of a function that escapes the content before the actual filtering happens.
-    'process callback' => 'block_shortcode_filter_block_shortcode_process', // (required) The name the function that performs the actual filtering.
-    'tips callback'  => 'block_shortcode_filter_block_shortcode_tips', // The name of a function that returns end-user-facing filter usage guidelines for the filter.
-    'cache' => FALSE, // (default TRUE) Specifies whether the filtered text can be cached. Note that setting this to FALSE makes the entire text format not cacheable, which may have an impact on the site's overall performance.
+    'title' => t('Block Shortcodes'), 
+    'description' => t('Sets up a custom filter that enables Block Shortcodes.'),
+    'prepare callback' => 'block_shortcode_filter_node_embed_prepare',
+    'process callback' => 'block_shortcode_filter_block_shortcode_process',
+    'tips callback'  => 'block_shortcode_filter_block_shortcode_tips',
+    'cache' => FALSE,
   );
  
   return $filters;
  
-} // block_shortcode_filter_info
+} 
  
 /**
  * Prepare callback for callback_filter_prepare
  * See https://api.drupal.org/api/drupal/modules%21filter%21filter.api.php/function/callback_filter_prepare/7
  */
 function block_shortcode_filter_block_shortcode_prepare($text, $filter, $format, $langcode, $cache, $cache_id) {
- 
+
   return $text;
- 
-} // block_shortcode_filter_node_embed_prepare
+
+}
  
 /**
  * Process callback for callback_filter_process
  * See https://api.drupal.org/api/drupal/modules%21filter%21filter.api.php/function/callback_filter_process/7
  */
 function block_shortcode_filter_block_shortcode_process($text, $filter, $format, $langcode, $cache, $cache_id) {
-   
-  // Here's where you'll create the regular expression for your custom shortcode.
+
+  // grab the relevant data from shortcode and convert it to block embed.
   return preg_replace_callback('/\[block module:(.*) delta:(.*)\]/', '_style_make_replacements', $text);
- 
-} // block_shortcode_filter_block_shortcode_process
+
+}
  
 /**
  * Tips callback for callback_filter_tips
  * See https://api.drupal.org/api/drupal/modules%21filter%21filter.api.php/function/callback_filter_tips/7
  */
 function block_shortcode_filter_block_shortcode_tips($filter, $format, $long) {
- 
+
   return t('[block module:some_module delta:123] - embed a block with given identification (module and delta). See block\'s edit page for a specific example.');
- 
-} // block_shortcode_filter_block_shortcode_tips
+
+}
  
  
 function block_shortcode_form_block_admin_configure_alter(&$form, &$form_state, $form_id) {
 
-	$module = $form['module']['#value'];
-	$delta = $form['delta']['#value'];
-	$form['block_shortcode_example'] = array(
-		'#markup' => '<strong>Shortcode:</strong> [block module:'.$module.' delta:'.$delta.']',
-	);
-
+  $module = $form['module']['#value'];
+  $delta = $form['delta']['#value'];
+  $form['block_shortcode_example'] = array(
+    '#markup' => '<strong>Shortcode:</strong> [block module:'.$module.' delta:'.$delta.']',
+  );
 
 }
  
@@ -70,7 +69,6 @@ function block_shortcode_form_block_admin_configure_alter(&$form, &$form_state, 
  * Provides the replacement HTML to be rendered in place of the short code.
  */
 function _style_make_replacements($matches) {
- 
   
   $module = $matches[1];
   $view = 'block_view';
@@ -83,6 +81,5 @@ function _style_make_replacements($matches) {
   $html .= '</div>';
   
   return $html;
- 
- 
-} // _style_make_replacements
+
+}
