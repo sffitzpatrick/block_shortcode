@@ -14,3 +14,7 @@ straightforward, secure way to do this.
 2. Add the Block Shortcode filter to any desired text format.
 3. Now anytime you want to embed a block, copy the shortcode example from the Block's configuration 
 page and paste into the place you want the block to appear.
+
+## Drupal.org
+
+The primary location for this (sandbox) project is on Drupal.org ([here](https://drupal.org/sandbox/seanfitzpatrick/2219069, "The sandbox project on Drupal")).
