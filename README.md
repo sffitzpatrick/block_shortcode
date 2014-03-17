@@ -2,13 +2,13 @@
 
 Easily embed Drupal blocks in nodes, other blocks, or anywhere text formats are allowed.
 
-# Why?
+## Why?
 
-> We've often come across situtations where we need to place a block on a page somewhere that Drupal's 
+We've often come across situtations where we need to place a block on a page somewhere that Drupal's 
 regions wouldn't allow (e.g., within paragraphs of text in a Node). The shortcode syntax provides a 
 straightforward, secure way to do this.
 
-# How?
+## How?
 
 1. Enable the module.
 2. Add the Block Shortcode filter to any desired text format.
