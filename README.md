@@ -1,6 +1,6 @@
-# Block Shortcodes
+# Block Shortcode
 
-Easily embed Drupal blocks in nodes, other blocks, or anywhere text formats are allowed.
+Easily embed Drupal blocks in nodes, other blocks, or anywhere text formats are allowed using the [Shortcode](https://codex.wordpress.org/Shortcode "Shortcode documentation on wordpress.org") syntax common in Wordpress.
 
 ## Why?
 
