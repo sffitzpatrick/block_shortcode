@@ -21,19 +21,19 @@ function block_shortcode_filter_info() {
   return $filters;
 
 }
- 
-/** 
-*  Prepare callback for callback_filter_prepare.
-*/
+
+/**
+ * Prepare callback for callback_filter_prepare.
+ */
 function block_shortcode_filter_block_shortcode_prepare($text, $filter, $format, $langcode, $cache, $cache_id) {
 
   return $text;
 
 }
- 
-/** 
-*   Process callback for callback_filter_process.
-*/
+
+/**
+ * Process callback for callback_filter_process.
+ */
 function block_shortcode_filter_block_shortcode_process($text, $filter, $format, $langcode, $cache, $cache_id) {
 
   // Grab the relevant data from shortcode and convert it to block embed.
@@ -42,8 +42,8 @@ function block_shortcode_filter_block_shortcode_process($text, $filter, $format,
 }
 
 /**
-*   Tips callback for callback_filter_tips.
-*/
+ * Tips callback for callback_filter_tips.
+ */
 function block_shortcode_filter_block_shortcode_tips($filter, $format, $long) {
 
   return t('[block module:some_module delta:123] - embed a block with given 
