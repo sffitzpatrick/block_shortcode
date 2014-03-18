@@ -22,16 +22,18 @@ function block_shortcode_filter_info() {
 
 }
  
-/** Prepare callback for callback_filter_prepare. **/
-
+/** 
+*  Prepare callback for callback_filter_prepare.
+*/
 function block_shortcode_filter_block_shortcode_prepare($text, $filter, $format, $langcode, $cache, $cache_id) {
 
   return $text;
 
 }
  
-/** Process callback for callback_filter_process. **/
-
+/** 
+*   Process callback for callback_filter_process.
+*/
 function block_shortcode_filter_block_shortcode_process($text, $filter, $format, $langcode, $cache, $cache_id) {
 
   // Grab the relevant data from shortcode and convert it to block embed.
@@ -39,8 +41,9 @@ function block_shortcode_filter_block_shortcode_process($text, $filter, $format,
 
 }
 
-/** Tips callback for callback_filter_tips. **/
-
+/**
+*   Tips callback for callback_filter_tips.
+*/
 function block_shortcode_filter_block_shortcode_tips($filter, $format, $long) {
 
   return t('[block module:some_module delta:123] - embed a block with given 
@@ -48,11 +51,10 @@ function block_shortcode_filter_block_shortcode_tips($filter, $format, $long) {
           );
 
 }
- 
+
 /**
  * Implements hook_form_FORM_ID_alter().
  */
-
 function block_shortcode_form_block_admin_configure_alter(&$form, &$form_state, $form_id) {
 
   $module = $form['module']['#value'];
