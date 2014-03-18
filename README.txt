@@ -28,9 +28,11 @@ INSTALLATION
 CONFIGURATION
 -------------
 
-  * Add the Block Shortcode filter to any desired text format (Configure > Text Formats).
-  * Now anytime you want to embed a block, copy the shortcode example from the Block's 
-  configuration page and paste into the place you want the block to appear.
+  * Add the Block Shortcode filter to any desired text format 
+  (Configure > Text Formats).
+  * Now anytime you want to embed a block, copy the shortcode example from 
+  the Block's configuration page and paste into the place you want the block 
+  to appear.
 
 MAINTAINERS
 -----------
