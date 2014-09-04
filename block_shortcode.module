@@ -37,7 +37,7 @@ function block_shortcode_filter_block_shortcode_prepare($text, $filter, $format,
 function block_shortcode_filter_block_shortcode_process($text, $filter, $format, $langcode, $cache, $cache_id) {
 
   // Grab the relevant data from shortcode and convert it to block embed.
-  return preg_replace_callback('/\[block module:(.*) delta:(.*)\]/', '_block_shortcode_style_make_replacements', $text);
+  return preg_replace_callback('/\[block module="(.*)" delta="(.*)" class="(.*)"\]/', '_block_shortcode_style_make_replacements', $text);
 
 }
 
