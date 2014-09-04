@@ -46,7 +46,7 @@ function block_shortcode_filter_block_shortcode_process($text, $filter, $format,
  */
 function block_shortcode_filter_block_shortcode_tips($filter, $format, $long) {
 
-  return t('[block module:some_module delta:123] - embed a block with given 
+  return t('[block module="some_module" delta="123" class="grid-2-1 first"] - embed a block with given 
             identification (module and delta). See block\'s edit page for a specific example.'
           );
 
@@ -62,7 +62,7 @@ function block_shortcode_form_block_admin_configure_alter(&$form, &$form_state, 
   $form['settings']['block_shortcode_example'] = array(
     '#type' => 'textfield',
     '#title' => 'Shortcode:',
-    '#default_value' => '[block module:' . $module . ' delta:' . $delta . ']',
+    '#default_value' => '[block module="' . $module . '" delta="' . $delta . '"]',
     '#description' => t('Copy the text above and paste anywhere that allows the Block Shortcode filter'),
     '#attributes' => array('readonly' => 'readonly'),
 
@@ -78,10 +78,11 @@ function _block_shortcode_style_make_replacements($matches) {
   $module = $matches[1];
   $view = 'block_view';
   $delta = $matches[2];
+  $class = $matches[3];
 
   $block = module_invoke($module, $view, $delta);
 
-  $html = '<div class="shortcode-block">';
+  $html = '<div class="shortcode-block ' . $class . '">';
   $html .= render($block['content']);
   $html .= '</div>';
 
